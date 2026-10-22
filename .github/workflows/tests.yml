@@ -1,0 +1,30 @@
+name: Formula
+
+# Each time the formula changes (Yagi's release workflow pushes one for every release), install it from this tap,
+# run its test and audit it, on Linux and on macOS.
+on:
+  push:
+    paths:
+      - Formula/**
+  pull_request:
+    paths:
+      - Formula/**
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  formula:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - uses: Homebrew/actions/setup-homebrew@4790763c0a3ba4036f72634dc079c4a7dfcd4878 # 2026.10.19.1
+      - run: brew audit --strict johnschult/tap/yagi
+      - run: brew install johnschult/tap/yagi
+      - run: brew test johnschult/tap/yagi
+      - run: yagi -version

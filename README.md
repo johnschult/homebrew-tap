@@ -3,7 +3,7 @@
 [Yagi](https://github.com/johnschult/yagi) shares an HDHomeRun tuner with the Plex, Jellyfin and Emby of your family and friends.
 
 ```sh
-brew install johnschult/tap/yagi
+brew install johnschult/yagi/yagi
 brew services start yagi        # keeps it running, and starts it again after a restart
 ```
 

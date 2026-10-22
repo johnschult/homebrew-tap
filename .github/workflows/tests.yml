@@ -24,7 +24,7 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     steps:
       - uses: Homebrew/actions/setup-homebrew@4790763c0a3ba4036f72634dc079c4a7dfcd4878 # 2026.10.19.1
-      - run: brew audit --strict johnschult/tap/yagi
-      - run: brew install johnschult/tap/yagi
-      - run: brew test johnschult/tap/yagi
+      - run: brew audit --strict johnschult/yagi/yagi
+      - run: brew install johnschult/yagi/yagi
+      - run: brew test johnschult/yagi/yagi
       - run: yagi -version

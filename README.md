@@ -1,9 +1,19 @@
-# Homebrew tap for Yagi
+# Homebrew tap
+
+My formulas, for [Homebrew](https://brew.sh) on macOS and Linux. Add the tap once, or name it each time:
+
+```sh
+brew tap johnschult/tap
+brew install yagi
+# or: brew install johnschult/tap/yagi
+```
+
+## Yagi
 
 [Yagi](https://github.com/johnschult/yagi) shares an HDHomeRun tuner with the Plex, Jellyfin and Emby of your family and friends.
 
 ```sh
-brew install johnschult/yagi/yagi
+brew install johnschult/tap/yagi
 brew services start yagi        # keeps it running, and starts it again after a restart
 ```
 
@@ -15,4 +25,4 @@ Homebrew installs the archive the release built (it doesn't build anything, so N
 
 ## About this repository
 
-`Formula/yagi.rb` is written by Yagi's release workflow, from [`packaging/homebrew/yagi.rb`](https://github.com/johnschult/yagi/blob/main/packaging/homebrew/yagi.rb), each time a release is made. Don't edit it here: the next release overwrites it. Change the template in the Yagi repository instead. A change to the formula here is installed and tested on Linux and macOS (see `.github/workflows/tests.yml`).
+`Formula/yagi.rb` is written by Yagi's release workflow, from [`packaging/homebrew/yagi.rb`](https://github.com/johnschult/yagi/blob/main/packaging/homebrew/yagi.rb), each time a release is made. Don't edit it here: the next release overwrites it. Change the template in the Yagi repository instead. A change to a formula here is installed and tested on Linux and macOS (see `.github/workflows/tests.yml`).

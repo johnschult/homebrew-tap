@@ -4,30 +4,33 @@
 class Yagi < Formula
   desc "Share an HDHomeRun tuner with the Plex, Jellyfin and Emby of family and friends"
   homepage "https://github.com/johnschult/yagi"
-  version "2026.10.18"
+  version "2026.10.19"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://github.com/johnschult/yagi/releases/download/v#{version}/yagi_#{version}_darwin_arm64.tar.gz"
-      sha256 "cf2252d7ef303eb8ef41dbf20507da436dbdd4df4aff9c6fa6abae3aa01536a4"
+      sha256 "9dd0c948a1c92d262dfb7fae5f1f487358155b093c96fca2272e6691f6272713"
     end
     on_intel do
       url "https://github.com/johnschult/yagi/releases/download/v#{version}/yagi_#{version}_darwin_amd64.tar.gz"
-      sha256 "9631d8d33278a33a7d2bbe05354c42315113e2a72a7dcf5a3338c7246fded561"
+      sha256 "b8b3e064ca3dbe7ca7233e089879fabeee0c41d71736554a79ebcc90a14dd66b"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/johnschult/yagi/releases/download/v#{version}/yagi_#{version}_linux_arm64.tar.gz"
-      sha256 "29269163dde3cbf10d4e01849c329f33a3aeb4511b8ebb523d7edc06fdb9a06a"
+      sha256 "63f1336eaee9c301ca08d15cba74557e979af7ef20c5b9af1f47f61e3e357535"
     end
     on_intel do
       url "https://github.com/johnschult/yagi/releases/download/v#{version}/yagi_#{version}_linux_amd64.tar.gz"
-      sha256 "84c8c430d463a9386fe0de5a6cf185a15c6f0b63675fe513902af0fee72d135b"
+      sha256 "6587d4b3ecf67b0e1bfd7fa2da97cecab9044ff5c8dd1b510f8cd1c93169fba3"
     end
   end
+
+  # Both install a program called yagi. They keep their settings in the same place, so switching keeps them.
+  conflicts_with "yagi-tailscale", because: "both install a program called yagi"
 
   def install
     bin.install "yagi"
